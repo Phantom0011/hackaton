@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if results %}
+        <ul>
+        {% for apartment in results %}
+            <li>
+                {{ apartment.location }} - ${{ apartment.price }} - {{ apartment.rooms }} room(s)<br>
+                {{ apartment.description }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No apartments found matching your criteria.</p>
+    {% endif %}
+
+    <a href="{{ url_for('search_apartments') }}">New Search</a>
+</body>
+</html>
