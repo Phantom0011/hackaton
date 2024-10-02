@@ -79,33 +79,33 @@
     </header>
 
     <div class="container">
-        <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+        <a href="{{ url_for('home') }}" class="button">Retour</a>
 
         <div class="form-container">
-            <h2>Enter Apartment Details</h2>
+            <h2>Entrer les details de la maison</h2>
             <form action="{{ url_for('add_apartment') }}" method="post">
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">Titre</label>
                     <input type="text" id="title" name="title" required>
                 </div>
                 <div class="form-group">
-                    <label for="location">Location</label>
+                    <label for="location">Quartier</label>
                     <input type="text" id="location" name="location" required>
                 </div>
                 <div class="form-group">
-                    <label for="price">Price (per month)</label>
+                    <label for="price">Loyer(par mois)</label>
                     <input type="text" id="price" name="price" required>
                 </div>
                 <div class="form-group">
-                    <label for="rooms">Rooms</label>
+                    <label for="rooms">Nombre de pièce</label>
                     <input type="text" id="rooms" name="rooms" required>
                 </div>
                 <div class="form-group">
-                    <label for="bedrooms">Bedrooms</label>
+                    <label for="bedrooms">Chambres</label>
                     <input type="text" id="bedrooms" name="bedrooms" required>
                 </div>
                 <div class="form-group">
-                    <label for="bathrooms">Bathrooms</label>
+                    <label for="bathrooms">Salle de bain</label>
                     <input type="text" id="bathrooms" name="bathrooms" required>
                 </div>
                 <div class="form-group">
@@ -113,11 +113,11 @@
                     <textarea id="description" name="description" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="image">Apartment Image</label>
+                    <label for="image">Image de l'appartement</label>
                     <input type="file" id="image" name="image" accept="image/*">
                 </div>
                  
-                <button type="submit" class="button">Add Apartment</button>
+                <button type="submit" class="button">Ajouter</button>
             </form>
         </div>
     </div>

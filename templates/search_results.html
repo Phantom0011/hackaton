@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results</title>
+    <title>Resultat des recherches</title>
+    <style>
+        h1{
+            text-align: center;
+            color: blue;
+            font-family: sans-serif;
+            font-size: 20;
+            font-weight:900 ;
+        }
+    </style>
 </head>
 <body>
-    <h1>Search Results</h1>
+    <h1>Resulat des recherches</h1>
     
     {% if error %}
         <p style="color: red;">{{ error }}</p>
@@ -15,10 +24,13 @@
     {% if results %}
         <ul>
         {% for apartment in results %}
-            <li>
-                {{ apartment.location }} - ${{ apartment.price }} - {{ apartment.rooms }} room(s)<br>
-                {{ apartment.description }}
-            </li>
+            <ul>
+                <li> {{ apartment.location }} </li>
+                <li> {{ apartment.price }}Ar </li>
+                <li> {{ apartment.rooms }} room(s) </li>
+                <li> {{ apartment.description }} </li>
+                
+            </ul>
         {% endfor %}
         </ul>
     {% else %}
