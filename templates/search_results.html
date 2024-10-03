@@ -12,31 +12,44 @@
             font-size: 20;
             font-weight:900 ;
         }
+
+        img{
+            width: 500px;
+        }
     </style>
 </head>
 <body>
-    <h1>Resulat des recherches</h1>
+    <div class="container">
+        <h1>Resultat des recherches</h1>
+        
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
     
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-
-    {% if results %}
-        <ul>
-        {% for apartment in results %}
-            <ul>
-                <li> {{ apartment.location }} </li>
-                <li> {{ apartment.price }}Ar </li>
-                <li> {{ apartment.rooms }} room(s) </li>
-                <li> {{ apartment.description }} </li>
-                
-            </ul>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No apartments found matching your criteria.</p>
-    {% endif %}
-
-    <a href="{{ url_for('search_apartments') }}">New Search</a>
+        {% if results %}
+            <div class="search-results">
+                {% for apartment in results %}
+                    <div class="apartment-card">
+                        {% if apartment.image %}
+                            <img src="{{ url_for('apartment_image', apartment_id=apartment.id) }}" alt="{{ apartment.title }}" class="apartment-image">
+                        {% else %}
+                            <div class="no-image">No image available</div>
+                        {% endif %}
+                        <h2>{{ apartment.title }}</h2>
+                        <p><strong>Location:</strong> {{ apartment.location }}</p>
+                        <p><strong>Price:</strong> {{ apartment.price }}Ar</p>
+                        <p><strong>Rooms:</strong> {{ apartment.rooms }}</p>
+                        <p><strong>Bedrooms:</strong> {{ apartment.bedrooms }}</p>
+                        <p><strong>Contact:</strong> {{ apartment.contact }}</p>
+                        <p><strong>Description:</strong> {{ apartment.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No apartments found matching your criteria.</p>
+        {% endif %}
+    
+        <a href="{{ url_for('search_apartments') }}" class="button">New Search</a>
+    </div>
 </body>
 </html>

@@ -81,43 +81,45 @@
     <div class="container">
         <a href="{{ url_for('home') }}" class="button">Retour</a>
 
-        <div class="form-container">
-            <h2>Entrer les details de la maison</h2>
-            <form action="{{ url_for('add_apartment') }}" method="post">
-                <div class="form-group">
-                    <label for="title">Titre</label>
-                    <input type="text" id="title" name="title" required>
+
+                <div class="form-container">
+                    <h2>Enter Apartment Details</h2>
+                    <form action="{{ url_for('add_apartment') }}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price (per month)</label>
+                            <input type="number" id="price" name="price" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rooms">Rooms</label>
+                            <input type="number" id="rooms" name="rooms" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bedrooms">Bedrooms</label>
+                            <input type="number" id="bedrooms" name="bedrooms" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Contact</label>
+                            <input type="text" id="contact" name="contact" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Apartment Image</label>
+                            <input type="file" id="image" name="image" accept="image/*">
+                        </div>
+                        <button type="submit" class="button">Ajouter    </button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="location">Quartier</label>
-                    <input type="text" id="location" name="location" required>
-                </div>
-                <div class="form-group">
-                    <label for="price">Loyer(par mois)</label>
-                    <input type="text" id="price" name="price" required>
-                </div>
-                <div class="form-group">
-                    <label for="rooms">Nombre de pièce</label>
-                    <input type="text" id="rooms" name="rooms" required>
-                </div>
-                <div class="form-group">
-                    <label for="bedrooms">Chambres</label>
-                    <input type="text" id="bedrooms" name="bedrooms" required>
-                </div>
-                <div class="form-group">
-                    <label for="bathrooms">Salle de bain</label>
-                    <input type="text" id="bathrooms" name="bathrooms" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="image">Image de l'appartement</label>
-                    <input type="file" id="image" name="image" accept="image/*">
-                </div>
-                 
-                <button type="submit" class="button">Ajouter</button>
             </form>
         </div>
     </div>
